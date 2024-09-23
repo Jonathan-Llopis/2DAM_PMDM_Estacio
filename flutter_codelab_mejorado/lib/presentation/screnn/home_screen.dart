@@ -24,7 +24,6 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
-
 class NavigationBar extends StatefulWidget {
   const NavigationBar({super.key});
 
@@ -48,7 +47,6 @@ class _NavigationBarState extends State<NavigationBar> {
       default:
         throw UnimplementedError("No widget for $selectedIndex");
     }
-
     return LayoutBuilder(builder: (context, constraints) {
       return Scaffold(
         body: page,
@@ -70,13 +68,10 @@ class _NavigationBarState extends State<NavigationBar> {
             });
           },
           selectedItemColor: const Color.fromARGB(255, 54, 114, 244),
+          showSelectedLabels: true,
+          showUnselectedLabels: false,
         ),
       );
     });
   }
 }
-
-
-
-
-
