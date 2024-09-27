@@ -11,12 +11,10 @@ class YesNo extends StatefulWidget {
 class _YesNoState extends State<YesNo> {
   @override
   Widget build(BuildContext context) {
-     if (widget.votacion == true) {
+     if (widget.votacion) {
       return Image.asset("lib/assets/images/yes.png");
-    } else if (widget.votacion == false) {
-      return Image.asset("lib/assets/images/no.png");
     } else{
-      return Container();
+      return Image.asset("lib/assets/images/no.png");
     }
   }
 }
