@@ -7,4 +7,4 @@ Segon exercici: [Flutter - CodeLab Mejorado](https://github.com/Jonathan-Llopis/
 Tercer exercici: [Flutter - App_votacion]( https://github.com/Jonathan-Llopis/2DAM_PMDM_Estacio/tree/8eda26a5d8be54596740882831ee1116abaafe2d/flutter_app_votacion)<br>
 Quart exercici: [Flutter - Icono_App](https://github.com/Jonathan-Llopis/2DAM_PMDM_Estacio/tree/d4c1b3ed098278737cd7b9b1498f5cd6479cce85/flutter_icono_app)<br>
 Cinquè exercici: [Flutter - Lista_Productos]( https://github.com/Jonathan-Llopis/2DAM_PMDM_Estacio/tree/d4c1b3ed098278737cd7b9b1498f5cd6479cce85/flutter_lista_productos)<br>
-Sisè exercici: [Flutter - Lista_Productos](https://github.com/Jonathan-Llopis/2DAM_PMDM_Estacio/tree/15833ca8fe4af98ae01a49c20feeebc33181e6da/flutter_gestion_tema)<br>
+Sisè exercici: [Flutter - Cambiar_Tema](https://github.com/Jonathan-Llopis/2DAM_PMDM_Estacio/tree/15833ca8fe4af98ae01a49c20feeebc33181e6da/flutter_gestion_tema)<br>
