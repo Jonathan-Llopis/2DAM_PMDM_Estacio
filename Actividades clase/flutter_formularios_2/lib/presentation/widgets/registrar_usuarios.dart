@@ -26,305 +26,294 @@ class _RegistrarUsuarios extends State<RegistrarUsuarios> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Registrar Usuarios'),
-      ),
-      body: SingleChildScrollView(
-        child: Form(
-          key: _formKey,
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Center(
-              child: Column(
-                children: <Widget>[
-                  SizedBox(
-                    width: 300,
-                    child: Column(
-                      children: [
-                        const Text(
-                          'Nombre:',
-                          style: TextStyle(fontSize: 20),
+    return SingleChildScrollView(
+      child: Form(
+        key: _formKey,
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Center(
+            child: Column(
+              children: <Widget>[
+                SizedBox(
+                  width: 300,
+                  child: Column(
+                    children: [
+                      const Text(
+                        'Nombre:',
+                        style: TextStyle(fontSize: 20),
+                      ),
+                      TextFormField(
+                        controller: _nomController,
+                        validator: (String? value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Debe introducir un nombre.';
+                          }
+                          return null;
+                        },
+                        decoration: const InputDecoration(
+                          hintText: 'Introduce tu nombre',
+                          labelText: "Nombre: ",
+                          border: OutlineInputBorder(),
                         ),
-                        TextFormField(
-                          controller: _nomController,
-                          validator: (String? value) {
-                            if (value == null || value.isEmpty) {
-                              return 'Debe introducir un nombre.';
-                            }
-                            return null;
-                          },
-                          decoration: const InputDecoration(
-                            hintText: 'Introduce tu nombre',
-                            labelText: "Nombre: ",
-                            border: OutlineInputBorder(),
-                          ),
-                        ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
-                  SizedBox(
-                    width: 300,
-                    child: Column(
-                      children: [
-                        const Text(
-                          'Apellido:',
-                          style: TextStyle(fontSize: 20),
+                ),
+                SizedBox(
+                  width: 300,
+                  child: Column(
+                    children: [
+                      const Text(
+                        'Apellido:',
+                        style: TextStyle(fontSize: 20),
+                      ),
+                      TextFormField(
+                        controller: _appellidoController,
+                        validator: (String? value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Debe introducir un apellido.';
+                          }
+                          return null;
+                        },
+                        decoration: const InputDecoration(
+                          hintText: 'Introduce tu Apellido',
+                          labelText: "Apellido: ",
+                          border: OutlineInputBorder(),
                         ),
-                        TextFormField(
-                          controller: _appellidoController,
-                          validator: (String? value) {
-                            if (value == null || value.isEmpty) {
-                              return 'Debe introducir un apellido.';
-                            }
-                            return null;
-                          },
-                          decoration: const InputDecoration(
-                            hintText: 'Introduce tu Apellido',
-                            labelText: "Apellido: ",
-                            border: OutlineInputBorder(),
-                          ),
-                        ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
-                  SizedBox(
-                    width: 300,
-                    child: Column(
-                      children: [
-                        const Text(
-                          'Edad:',
-                          style: TextStyle(fontSize: 20),
+                ),
+                SizedBox(
+                  width: 300,
+                  child: Column(
+                    children: [
+                      const Text(
+                        'Edad:',
+                        style: TextStyle(fontSize: 20),
+                      ),
+                      TextFormField(
+                        inputFormatters: <TextInputFormatter>[
+                          FilteringTextInputFormatter.digitsOnly,
+                        ],
+                        keyboardType: TextInputType.number,
+                        controller: _edadController,
+                        validator: (String? value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Debe introducir una edad.';
+                          } else {
+                            if (int.parse(_edadController.text) < 18) {
+                              return 'Debe ser mayor de edad.';
+                            }
+                          }
+                          return null;
+                        },
+                        decoration: const InputDecoration(
+                          hintText: 'Introduce tu Edad',
+                          labelText: "Edad: ",
+                          border: OutlineInputBorder(),
                         ),
-                        TextFormField(
-                          inputFormatters: <TextInputFormatter>[
-                            FilteringTextInputFormatter.digitsOnly,
-                          ],
-                          keyboardType: TextInputType.number,
-                          controller: _edadController,
-                          validator: (String? value) {
-                            if (value == null || value.isEmpty) {
-                              return 'Debe introducir una edad.';
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  width: 300,
+                  child: Column(
+                    children: [
+                      const Text(
+                        'Email:',
+                        style: TextStyle(fontSize: 20),
+                      ),
+                      TextFormField(
+                        keyboardType: TextInputType.emailAddress,
+                        controller: _emailController,
+                        validator: (String? value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Debe introducir una email.';
+                          }
+                          return null;
+                        },
+                        decoration: const InputDecoration(
+                          hintText: 'Introduce tu Email',
+                          labelText: "Email: ",
+                          border: OutlineInputBorder(),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  width: 300,
+                  child: Column(
+                    children: [
+                      const Text(
+                        'Sexo:',
+                        style: TextStyle(fontSize: 20),
+                      ),
+                      Row(
+                        children: [
+                          Radio<int>(
+                            value: 1,
+                            groupValue: _sexoValue,
+                            onChanged: (int? newValue) {
+                              _sexo = "Hombre";
+                              setState(() {
+                                _sexoValue = newValue!;
+                              });
+                            },
+                          ),
+                          const Text('Hombre'),
+                          Radio<int>(
+                            value: 0,
+                            groupValue: _sexoValue,
+                            onChanged: (int? newValue) {
+                              _sexo = "Mujer";
+                              setState(() {
+                                _sexoValue = newValue!;
+                              });
+                            },
+                          ),
+                          const Text('Mujer'),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  width: 300,
+                  child: Column(
+                    children: [
+                      const Text(
+                        'Aficiones:',
+                        style: TextStyle(fontSize: 20),
+                      ),
+                      CheckboxListTile(
+                        title: const Text('Deportes'),
+                        value: isCheckedDeporte,
+                        onChanged: (bool? value) {
+                          setState(() {
+                            if (value == true) {
+                              _hobbies.add("deporte");
                             } else {
-                              if (int.parse(_edadController.text) < 18) {
-                                return 'Debe ser mayor de edad.';
-                              }
+                              _hobbies.remove("deporte");
                             }
-                            return null;
-                          },
-                          decoration: const InputDecoration(
-                            hintText: 'Introduce tu Edad',
-                            labelText: "Edad: ",
-                            border: OutlineInputBorder(),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  SizedBox(
-                    width: 300,
-                    child: Column(
-                      children: [
-                        const Text(
-                          'Email:',
-                          style: TextStyle(fontSize: 20),
-                        ),
-                        TextFormField(
-                          keyboardType: TextInputType.emailAddress,
-                          controller: _emailController,
-                          validator: (String? value) {
-                            if (value == null || value.isEmpty) {
-                              return 'Debe introducir una email.';
-                            }
-                            return null;
-                          },
-                          decoration: const InputDecoration(
-                            hintText: 'Introduce tu Email',
-                            labelText: "Email: ",
-                            border: OutlineInputBorder(),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  SizedBox(
-                    width: 300,
-                    child: Column(
-                      children: [
-                        const Text(
-                          'Sexo:',
-                          style: TextStyle(fontSize: 20),
-                        ),
-                        Row(
-                          children: [
-                            Radio<int>(
-                              value: 1,
-                              groupValue: _sexoValue,
-                              onChanged: (int? newValue) {
-                                _sexo = "Hombre";
-                                setState(() {
-                                  _sexoValue = newValue!;
-                                });
-                              },
-                            ),
-                            const Text('Hombre'),
-                            Radio<int>(
-                              value: 0,
-                              groupValue: _sexoValue,
-                              onChanged: (int? newValue) {
-                                _sexo = "Mujer";
-                                setState(() {
-                                  _sexoValue = newValue!;
-                                });
-                              },
-                            ),
-                            const Text('Mujer'),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                  SizedBox(
-                    width: 300,
-                    child: Column(
-                      children: [
-                        const Text(
-                          'Aficiones:',
-                          style: TextStyle(fontSize: 20),
-                        ),
-                        CheckboxListTile(
-                              title: const Text('Deportes'),
-                              value: isCheckedDeporte,
-                              onChanged: (bool? value) {
-                                setState(() {
-                                    if (value == true) {
-                                    _hobbies.add("deporte");
-                                  } else {
-                                    _hobbies.remove("deporte");
-                                  }
-                                  setState(() {
-                                    isCheckedDeporte = value!;
-                                  });
-                                });
-                              },
-                              
-                            ),
-                              CheckboxListTile(
-                              title: const Text('Lectura'),
-                              value: isCheckedLectura,
-                              onChanged: (bool? value) {
-                                setState(() {
-                                    if (value == true) {
-                                    _hobbies.add("lectura");
-                                  } else {
-                                    _hobbies.remove("lectura");
-                                  }
-                                  setState(() {
-                                    isCheckedLectura = value!;
-                                  });
-                                });
-                              },
-                              
-                            ),
-                              CheckboxListTile(
-                              title: const Text('Deportes'),
-                              value: isCheckedCocinar,
-                              onChanged: (bool? value) {
-                                setState(() {
-                                    if (value == true) {
-                                    _hobbies.add("cocinar");
-                                  } else {
-                                    _hobbies.remove("cocinar");
-                                  }
-                                  setState(() {
-                                    isCheckedCocinar = value!;
-                                  });
-                                });
-                              },
-                              
-                            ),
-                              CheckboxListTile(
-                              title: const Text('VideoJuegos'),
-                              value: isCheckedJuegos,
-                              onChanged: (bool? value) {
-                                setState(() {
-                                    if (value == true) {
-                                    _hobbies.add("juegos");
-                                  } else {
-                                    _hobbies.remove("juegos");
-                                  }
-                                  setState(() {
-                                    isCheckedJuegos = value!;
-                                  });
-                                });
-                              },
-                              
-                            ),
-                              CheckboxListTile(
-                              title: const Text('Viajar'),
-                              value: isCheckedViajar,
-                              onChanged: (bool? value) {
-                                setState(() {
-                                    if (value == true) {
-                                    _hobbies.add("viajar");
-                                  } else {
-                                    _hobbies.remove("viajar");
-                                  }
-                                  setState(() {
-                                    isCheckedViajar = value!;
-                                  });
-                                });
-                              },
-                              
-                            ),
-                        
-                        ElevatedButton(
-                          onPressed: () {
-                            String mensajeRespuesta =
-                                "Usuario registrado correctamente.";
-                            if (!_formKey.currentState!.validate()) {
-                              if (_edadController.text.isNotEmpty &&
-                                  int.parse(_edadController.text) < 18) {
-                                mensajeRespuesta =
-                                    "Debes ser mayor de edad para registrarse.";
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(content: Text(mensajeRespuesta)),
-                                );
-                              } else {
-                                mensajeRespuesta =
-                                    "Hay campos requeridos sin completar.";
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(content: Text(mensajeRespuesta)),
-                                );
-                              }
+                            setState(() {
+                              isCheckedDeporte = value!;
+                            });
+                          });
+                        },
+                      ),
+                      CheckboxListTile(
+                        title: const Text('Lectura'),
+                        value: isCheckedLectura,
+                        onChanged: (bool? value) {
+                          setState(() {
+                            if (value == true) {
+                              _hobbies.add("lectura");
                             } else {
-                              if (_hobbies.isEmpty) {
-                                mensajeRespuesta =
-                                    "Debes elegir al menos un hobbie.";
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(content: Text(mensajeRespuesta)),
-                                );
-                              } else {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                    SnackBar(content: Text(mensajeRespuesta)));
-                                Usuario nuevoUsuario = Usuario(
-                                    _nomController.text,
-                                    _appellidoController.text,
-                                    int.parse(_edadController.text),
-                                    _emailController.text,
-                                    _sexo,
-                                    _hobbies);
-                                nuevoUsuario.mostrarUsuario();
-                              }
+                              _hobbies.remove("lectura");
                             }
-                          },
-                          child: const Text('Registrar Usuario'),
-                        ),
-                      ],
-                    ),
+                            setState(() {
+                              isCheckedLectura = value!;
+                            });
+                          });
+                        },
+                      ),
+                      CheckboxListTile(
+                        title: const Text('Deportes'),
+                        value: isCheckedCocinar,
+                        onChanged: (bool? value) {
+                          setState(() {
+                            if (value == true) {
+                              _hobbies.add("cocinar");
+                            } else {
+                              _hobbies.remove("cocinar");
+                            }
+                            setState(() {
+                              isCheckedCocinar = value!;
+                            });
+                          });
+                        },
+                      ),
+                      CheckboxListTile(
+                        title: const Text('VideoJuegos'),
+                        value: isCheckedJuegos,
+                        onChanged: (bool? value) {
+                          setState(() {
+                            if (value == true) {
+                              _hobbies.add("juegos");
+                            } else {
+                              _hobbies.remove("juegos");
+                            }
+                            setState(() {
+                              isCheckedJuegos = value!;
+                            });
+                          });
+                        },
+                      ),
+                      CheckboxListTile(
+                        title: const Text('Viajar'),
+                        value: isCheckedViajar,
+                        onChanged: (bool? value) {
+                          setState(() {
+                            if (value == true) {
+                              _hobbies.add("viajar");
+                            } else {
+                              _hobbies.remove("viajar");
+                            }
+                            setState(() {
+                              isCheckedViajar = value!;
+                            });
+                          });
+                        },
+                      ),
+                      ElevatedButton(
+                        onPressed: () {
+                          String mensajeRespuesta =
+                              "Usuario registrado correctamente.";
+                          if (!_formKey.currentState!.validate()) {
+                            if (_edadController.text.isNotEmpty &&
+                                int.parse(_edadController.text) < 18) {
+                              mensajeRespuesta =
+                                  "Debes ser mayor de edad para registrarse.";
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(content: Text(mensajeRespuesta)),
+                              );
+                            } else {
+                              mensajeRespuesta =
+                                  "Hay campos requeridos sin completar.";
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(content: Text(mensajeRespuesta)),
+                              );
+                            }
+                          } else {
+                            if (_hobbies.isEmpty) {
+                              mensajeRespuesta =
+                                  "Debes elegir al menos un hobbie.";
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(content: Text(mensajeRespuesta)),
+                              );
+                            } else {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(content: Text(mensajeRespuesta)));
+                              Usuario nuevoUsuario = Usuario(
+                                  _nomController.text,
+                                  _appellidoController.text,
+                                  int.parse(_edadController.text),
+                                  _emailController.text,
+                                  _sexo,
+                                  _hobbies);
+                              nuevoUsuario.mostrarUsuario();
+                            }
+                          }
+                        },
+                        child: const Text('Registrar Usuario'),
+                      ),
+                    ],
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ),

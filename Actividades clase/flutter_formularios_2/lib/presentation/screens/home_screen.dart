@@ -15,7 +15,9 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-          appBar: AppBar(title: const Text("Generador de Robots")),
+           appBar: AppBar(
+        title: const Text('Registrar Usuarios'),
+      ),
           body: const Center(
             child: RegistrarUsuarios()
           
