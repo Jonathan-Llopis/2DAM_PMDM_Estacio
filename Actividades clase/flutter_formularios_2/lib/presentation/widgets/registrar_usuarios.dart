@@ -192,13 +192,12 @@ class _RegistrarUsuarios extends State<RegistrarUsuarios> {
                           'Aficiones:',
                           style: TextStyle(fontSize: 20),
                         ),
-                        Row(
-                          children: [
-                            Checkbox(
-                                checkColor: Colors.white,
-                                value: isCheckedDeporte,
-                                onChanged: (bool? value) {
-                                  if (value == true) {
+                        CheckboxListTile(
+                              title: const Text('Deportes'),
+                              value: isCheckedDeporte,
+                              onChanged: (bool? value) {
+                                setState(() {
+                                    if (value == true) {
                                     _hobbies.add("deporte");
                                   } else {
                                     _hobbies.remove("deporte");
@@ -206,13 +205,16 @@ class _RegistrarUsuarios extends State<RegistrarUsuarios> {
                                   setState(() {
                                     isCheckedDeporte = value!;
                                   });
-                                }),
-                            const Text('Deporte'),
-                            Checkbox(
-                                checkColor: Colors.white,
-                                value: isCheckedLectura,
-                                onChanged: (bool? value) {
-                                  if (value == true) {
+                                });
+                              },
+                              
+                            ),
+                              CheckboxListTile(
+                              title: const Text('Lectura'),
+                              value: isCheckedLectura,
+                              onChanged: (bool? value) {
+                                setState(() {
+                                    if (value == true) {
                                     _hobbies.add("lectura");
                                   } else {
                                     _hobbies.remove("lectura");
@@ -220,13 +222,16 @@ class _RegistrarUsuarios extends State<RegistrarUsuarios> {
                                   setState(() {
                                     isCheckedLectura = value!;
                                   });
-                                }),
-                            const Text('Lectura'),
-                            Checkbox(
-                                checkColor: Colors.white,
-                                value: isCheckedCocinar,
-                                onChanged: (bool? value) {
-                                  if (value == true) {
+                                });
+                              },
+                              
+                            ),
+                              CheckboxListTile(
+                              title: const Text('Deportes'),
+                              value: isCheckedCocinar,
+                              onChanged: (bool? value) {
+                                setState(() {
+                                    if (value == true) {
                                     _hobbies.add("cocinar");
                                   } else {
                                     _hobbies.remove("cocinar");
@@ -234,31 +239,33 @@ class _RegistrarUsuarios extends State<RegistrarUsuarios> {
                                   setState(() {
                                     isCheckedCocinar = value!;
                                   });
-                                }),
-                            const Text('Cocinar'),
-                          ],
-                        ),
-                        Row(
-                          children: [
-                            Checkbox(
-                                checkColor: Colors.white,
-                                value: isCheckedJuegos,
-                                onChanged: (bool? value) {
-                                  if (value == true) {
-                                    _hobbies.add("videojuegos");
+                                });
+                              },
+                              
+                            ),
+                              CheckboxListTile(
+                              title: const Text('VideoJuegos'),
+                              value: isCheckedJuegos,
+                              onChanged: (bool? value) {
+                                setState(() {
+                                    if (value == true) {
+                                    _hobbies.add("juegos");
                                   } else {
-                                    _hobbies.remove("videojuegos");
+                                    _hobbies.remove("juegos");
                                   }
                                   setState(() {
                                     isCheckedJuegos = value!;
                                   });
-                                }),
-                            const Text('Videojuegos'),
-                            Checkbox(
-                                checkColor: Colors.white,
-                                value: isCheckedViajar,
-                                onChanged: (bool? value) {
-                                  if (value == true) {
+                                });
+                              },
+                              
+                            ),
+                              CheckboxListTile(
+                              title: const Text('Viajar'),
+                              value: isCheckedViajar,
+                              onChanged: (bool? value) {
+                                setState(() {
+                                    if (value == true) {
                                     _hobbies.add("viajar");
                                   } else {
                                     _hobbies.remove("viajar");
@@ -266,11 +273,11 @@ class _RegistrarUsuarios extends State<RegistrarUsuarios> {
                                   setState(() {
                                     isCheckedViajar = value!;
                                   });
-                                  
-                                }),
-                            const Text('Viajar'),
-                          ],
-                        ),
+                                });
+                              },
+                              
+                            ),
+                        
                         ElevatedButton(
                           onPressed: () {
                             String mensajeRespuesta =
