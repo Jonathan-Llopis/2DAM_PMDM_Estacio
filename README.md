@@ -8,7 +8,7 @@ Alumne: Jonathan Llopis Linares
 4º exercici: [Flutter - Icono_App](https://github.com/Jonathan-Llopis/2DAM_PMDM_Estacio/tree/main/Actividades%20clase/flutter_icono_app)<br>
 5º exercici: [Flutter - Lista_Productos](https://github.com/Jonathan-Llopis/2DAM_PMDM_Estacio/tree/main/Actividades%20clase/flutter_lista_productos)<br>
 6º exercici: [Flutter - Cambiar_Tema](https://github.com/Jonathan-Llopis/2DAM_PMDM_Estacio/tree/main/Actividades%20clase/flutter_gestion_tema)<br>
-7º exercici: [Flutter - Formulari_1](https://github.com/Jonathan-Llopis/2DAM_PMDM_Estacio/tree/main/Actividades%20clase/flutter_formularios_1)<br>
-8º exercici: [Flutter - Formulari_2](https://github.com/Jonathan-Llopis/2DAM_PMDM_Estacio/tree/main/Actividades%20clase/flutter_formularios_2)<br>
-9º exercici: [Flutter - Dialegs_1](https://github.com/Jonathan-Llopis/2DAM_PMDM_Estacio/tree/main/Actividades%20clase/flutter_dialogos_1)<br>
-10º exercici: [Flutter - Dialegs_2](https://github.com/Jonathan-Llopis/2DAM_PMDM_Estacio/tree/main/Actividades%20clase/flutter_dialogos_2)<br>
+7º exercici: [Flutter - Formulario_1](https://github.com/Jonathan-Llopis/2DAM_PMDM_Estacio/tree/main/Actividades%20clase/flutter_formularios_1)<br>
+8º exercici: [Flutter - Formulario_2](https://github.com/Jonathan-Llopis/2DAM_PMDM_Estacio/tree/main/Actividades%20clase/flutter_formularios_2)<br>
+9º exercici: [Flutter - Dialogos_1](https://github.com/Jonathan-Llopis/2DAM_PMDM_Estacio/tree/main/Actividades%20clase/flutter_dialogos_1)<br>
+10º exercici: [Flutter - Dialogos_2](https://github.com/Jonathan-Llopis/2DAM_PMDM_Estacio/tree/main/Actividades%20clase/flutter_dialogos_2)<br>
