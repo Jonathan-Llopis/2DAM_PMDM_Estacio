@@ -58,4 +58,10 @@ Alumne: Jonathan Llopis Linares
     <td>Flutter - Dialogos_2</td>
     <td><a href="https://github.com/Jonathan-Llopis/2DAM_PMDM_Estacio/tree/main/Actividades%20clase/flutter_dialogos_2">Link</a></td>
   </tr>
+   <tr>
+    <td>11</td>
+    <td>Flutter - BLoC</td>
+    <td><a href="https://github.com/Jonathan-Llopis/2DAM_PMDM_Estacio/tree/main/Actividades%20clase/flutter_counter_bloc">Link</a></td>
+  </tr>
 </table>
+
