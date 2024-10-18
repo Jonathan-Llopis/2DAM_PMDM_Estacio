@@ -4,7 +4,6 @@ import 'package:flutter_counter_bloc/presentation/blocs/counter/counter_bloc.dar
 import 'package:flutter_counter_bloc/presentation/blocs/theme/theme_bloc.dart';
 import 'package:flutter_counter_bloc/presentation/blocs/theme/theme_event.dart';
 import 'package:flutter_counter_bloc/presentation/blocs/theme/theme_state.dart';
-import 'package:flutter_counter_bloc/presentation/config/theme/app_theme.dart';
 import 'package:flutter_counter_bloc/presentation/screens/home_screen.dart';
 
 void main() {

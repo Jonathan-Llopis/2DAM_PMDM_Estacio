@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
-const colorList = <Color>[
+
+
+class AppTheme {
+  static const colorList = <Color>[
   Colors.blue,
   Colors.teal,
   Colors.green,
@@ -10,15 +13,17 @@ const colorList = <Color>[
   Colors.orange,
   Colors.pink,
   Colors.pinkAccent,
+  Colors.grey,
+  Colors.white,
+  Colors.black,
 
 ];
-
-class AppTheme {
-  ThemeData getTheme(int selectedColor, bool isDarkmode) {
+  ThemeData getTheme(int selectedColor, bool isDarkmode, int colorBackground, int dialogColor) {
     return ThemeData(
       brightness: isDarkmode ? Brightness.dark : Brightness.light,
-      primaryColor: colorList[selectedColor],
+      primaryColor: colorList[1],
       hintColor: colorList[selectedColor],
+      scaffoldBackgroundColor: colorList [colorBackground],
       appBarTheme: AppBarTheme(
         color: colorList[selectedColor],
         iconTheme: const IconThemeData(color: Colors.white),
@@ -28,6 +33,7 @@ class AppTheme {
         displayLarge: TextStyle(fontSize: 45, color: Colors.black),
         bodyLarge: TextStyle(fontSize: 18, color: Colors.black87),
       ),
+      dialogBackgroundColor: colorList[dialogColor],
     );
   }
 }

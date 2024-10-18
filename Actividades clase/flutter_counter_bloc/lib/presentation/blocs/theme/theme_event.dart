@@ -17,7 +17,6 @@ class SetInitialTheme extends ThemeEvent {
 class ChangeTheme extends ThemeEvent {
   final int color;
 
-  
   const ChangeTheme({required this.color});
 
   @override
@@ -27,8 +26,25 @@ class ChangeTheme extends ThemeEvent {
 class ChangeDarkMode extends ThemeEvent {
   final bool darkMode;
 
-  const ChangeDarkMode({required this.darkMode});
+  const ChangeDarkMode({required this.darkMode,});
 
   @override
   List<Object> get props => [darkMode];
+}
+
+class ChangeBackground extends ThemeEvent {
+  final int colorBackground;
+
+  const ChangeBackground({required this.colorBackground});
+
+  @override
+  List<Object> get props => [colorBackground];
+}
+class ChangeDialog extends ThemeEvent {
+  final int dialogColor;
+
+  const ChangeDialog({required this.dialogColor});
+
+  @override
+  List<Object> get props => [dialogColor];
 }
