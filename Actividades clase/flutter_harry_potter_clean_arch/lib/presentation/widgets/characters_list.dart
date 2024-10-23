@@ -75,7 +75,12 @@ class _CharactersListState extends State<CharactersList> {
               }
               // Mostrar la lista de personajes
               else if (state.characters.isNotEmpty) {
-                return ListView.builder(
+                return GridView.builder(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 3,
+                    crossAxisSpacing: 5,
+                    mainAxisSpacing: 5,
+                  ),
                   itemCount: state.characters.length,
                   itemBuilder: (context, index) {
                     final character = state.characters[index];
@@ -97,7 +102,8 @@ class _CharactersListState extends State<CharactersList> {
                                             }),
                                         title: Center(
                                             child: Text(
-                                                "Datos Especificos de ${character.name}", ))),
+                                          "Datos Especificos de ${character.name}",
+                                        ))),
                                     const SizedBox(
                                       height: 30,
                                     ),
@@ -105,10 +111,15 @@ class _CharactersListState extends State<CharactersList> {
                                       children: [
                                         const Icon(Icons.calendar_today),
                                         const SizedBox(width: 8),
-                                        Text(character.dateOfBirth,  style: TextStyle(
-                      color: Theme.of(context).brightness == Brightness.dark
-                          ? Colors.white
-                          : Colors.black),),
+                                        Text(
+                                          character.dateOfBirth,
+                                          style: TextStyle(
+                                              color: Theme.of(context)
+                                                          .brightness ==
+                                                      Brightness.dark
+                                                  ? Colors.white
+                                                  : Colors.black),
+                                        ),
                                       ],
                                     ),
                                     const SizedBox(height: 16),
@@ -116,10 +127,15 @@ class _CharactersListState extends State<CharactersList> {
                                       children: [
                                         const Icon(Icons.pets),
                                         const SizedBox(width: 8),
-                                        Text(character.species,  style: TextStyle(
-                      color: Theme.of(context).brightness == Brightness.dark
-                          ? Colors.white
-                          : Colors.black),),
+                                        Text(
+                                          character.species,
+                                          style: TextStyle(
+                                              color: Theme.of(context)
+                                                          .brightness ==
+                                                      Brightness.dark
+                                                  ? Colors.white
+                                                  : Colors.black),
+                                        ),
                                       ],
                                     ),
                                   ],
@@ -127,15 +143,35 @@ class _CharactersListState extends State<CharactersList> {
                               );
                             });
                       },
-                      child: ListTile(
-                        leading: Image.network(character.image),
-                        title: Text(character.name),
-                        subtitle: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                      child: Card(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        elevation: 5,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text("Casa: ${character.house}"),
-                            Text("Nacimiento: ${character.dateOfBirth}"),
-                            Text("Especie: ${character.species}"),
+                            Image.network(
+                              character.image,
+                              height: 150,
+                              width: 150,
+                            ),
+                            ListTile(
+                              title: Column(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Text(character.name),
+                                ],
+                              ),
+                              subtitle: Column(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Text("Casa: ${character.house}"),
+                                  Text("Nacimiento: ${character.dateOfBirth}"),
+                                  Text("Especie: ${character.species}"),
+                                ],
+                              ),
+                            ),
                           ],
                         ),
                       ),

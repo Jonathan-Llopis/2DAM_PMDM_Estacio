@@ -30,9 +30,9 @@ class AppTheme {
       ),
       textTheme: const TextTheme(
         displayLarge: TextStyle(fontSize: 45, color: Colors.black),
-        bodyLarge: TextStyle(fontSize: 30, color: Colors.black87),
-        bodyMedium: TextStyle(fontSize: 20, color:Colors.black87),
-        bodySmall: TextStyle(fontSize: 18, color:Colors.black87),
+        bodyLarge: TextStyle(fontSize:20, color: Colors.black87),
+        bodyMedium: TextStyle(fontSize: 16, color:Colors.black87),
+        bodySmall: TextStyle(fontSize: 13, color:Colors.black87),
       ),
       dialogBackgroundColor: colorList[dialogColor],
       fontFamily: font,

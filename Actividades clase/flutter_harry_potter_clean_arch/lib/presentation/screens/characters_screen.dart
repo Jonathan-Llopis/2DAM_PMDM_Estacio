@@ -13,28 +13,26 @@ class CharactersScreen extends StatefulWidget {
 }
 
 class _CharacterScreenState extends State<CharactersScreen> {
-  
-  
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Personajes de Harry Potter'),
-        actions: [
-          BlocBuilder<CharacterBloc, CharacterState>(builder: (context, state) {
-            return Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Text("Total de Personajes ${state.characters.length}", style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.white),),
-                const SizedBox(width: 40,)
-              ],
-            );
-          }),
-        ],
-      ),
-      body: const CharactersList(),
-      drawer: const MenuLateral(),
-    );
+    return BlocBuilder<CharacterBloc, CharacterState>(
+        builder: (context, state) {
+      return Scaffold(
+        appBar: AppBar(
+          title: const Text('Personajes de Harry Potter'),
+          centerTitle: true,
+          bottom: PreferredSize(
+            preferredSize: Size.zero,
+            child: Text(
+              "Total de Personajes ${state.characters.length}",
+              style: const TextStyle(
+                  fontWeight: FontWeight.bold, color: Colors.white),
+            ),
+          ),
+        ),
+        body: const CharactersList(),
+        drawer: const MenuLateral(),
+      );
+    });
   }
 }
