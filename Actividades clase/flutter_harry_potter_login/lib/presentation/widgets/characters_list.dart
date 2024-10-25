@@ -4,7 +4,6 @@ import 'package:flutter_harry_potter_login/presentation/blocs/characters/charact
 import 'package:flutter_harry_potter_login/presentation/blocs/characters/characters_event.dart';
 import 'package:flutter_harry_potter_login/presentation/blocs/characters/characters_state.dart';
 
-
 class CharactersList extends StatefulWidget {
   const CharactersList({super.key});
 
@@ -154,9 +153,9 @@ class _CharactersListState extends State<CharactersList> {
                           children: [
                             Image.network(
                               character.image,
-                              fit: BoxFit.contain,
+                              fit: BoxFit.scaleDown,
                               height: 100,
-                              width: 100,
+                              width: 70,
                             ),
                             ListTile(
                               title: Column(
