@@ -15,6 +15,7 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
+  bool _passwordVisible = false;
 
   @override
   Widget build(BuildContext context) {
@@ -32,12 +33,29 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             TextField(
               controller: _emailController,
-              decoration: const InputDecoration(labelText: 'Email'),
+              decoration: const InputDecoration(labelText: 'Email',  hintText: 'Enter your email',),
+              
             ),
-            TextField(
+            TextFormField(
+              keyboardType: TextInputType.text,
               controller: _passwordController,
-              decoration: const InputDecoration(labelText: 'Password'),
-              obscureText: true,
+              obscureText:
+                  !_passwordVisible,
+              decoration: InputDecoration(
+                labelText: 'Password',
+                hintText: 'Enter your password',
+                suffixIcon: IconButton(
+                  icon: Icon(
+                    _passwordVisible ? Icons.visibility : Icons.visibility_off,
+                    color: Theme.of(context).primaryColorDark,
+                  ),
+                  onPressed: () {
+                    setState(() {
+                      _passwordVisible = !_passwordVisible;
+                    });
+                  },
+                ),
+              ),
             ),
             const SizedBox(height: 20),
             BlocConsumer<LoginBloc, LoginState>(

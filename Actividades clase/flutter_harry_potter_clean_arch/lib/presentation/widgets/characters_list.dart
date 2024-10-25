@@ -77,7 +77,7 @@ class _CharactersListState extends State<CharactersList> {
               else if (state.characters.isNotEmpty) {
                 return GridView.builder(
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 3,
+                    crossAxisCount: 2,
                     crossAxisSpacing: 5,
                     mainAxisSpacing: 5,
                   ),
@@ -153,8 +153,8 @@ class _CharactersListState extends State<CharactersList> {
                           children: [
                             Image.network(
                               character.image,
-                              height: 150,
-                              width: 150,
+                              height: 100,
+                              width: 100,
                             ),
                             ListTile(
                               title: Column(

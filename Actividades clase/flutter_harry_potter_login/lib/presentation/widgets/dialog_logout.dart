@@ -18,7 +18,7 @@ class LogOutUser extends StatelessWidget {
         actions: <Widget>[
           TextButton(
             onPressed: () {
-              Navigator.pop(context); // Retornar 'Cancelar'
+              Navigator.pop(context); 
             },
             child: const Text('Cancelar'),
           ),
@@ -26,7 +26,7 @@ class LogOutUser extends StatelessWidget {
             onPressed: () {
               context.read<LoginBloc>().add(LogoutButtonPressed());
               context.go('/login');
-              Navigator.pop(context); // Retornar 'Aceptar'
+              Navigator.pop(context); 
             },
             child: const Text('Aceptar'),
           ),

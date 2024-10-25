@@ -19,7 +19,6 @@ class _DialogoThemeState extends State<DialogoTheme> {
   @override
   Widget build(BuildContext context) {
     return Dialog(
-      //insetPadding: const EdgeInsets.symmetric(horizontal: 300, vertical: 200),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10),
       ),
