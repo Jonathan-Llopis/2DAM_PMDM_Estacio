@@ -83,7 +83,7 @@ Alumne: Jonathan Llopis Linares
      </tr>
         <tr>
       <td>15</td>
-      <td>Flutter - Twitter Copy</td>
+      <td>Flutter - FireBase - Google Login</td>
       <td><a href="https://github.com/Jonathan-Llopis/2DAM_PMDM_Estacio/tree/main/Actividades%20clase/flutter_firebase_login">Link</a></td>
      </tr>
 
