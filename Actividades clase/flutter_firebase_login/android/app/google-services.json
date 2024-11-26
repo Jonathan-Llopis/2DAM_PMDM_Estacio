@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "399401442767",
+    "firebase_url": "https://ejempo-login-default-rtdb.firebaseio.com",
+    "project_id": "ejempo-login",
+    "storage_bucket": "ejempo-login.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:399401442767:android:c5fc3af86a969e141d46ba",
+        "android_client_info": {
+          "package_name": "com.jonathanllopis.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "399401442767-tu73i70dfdnqiah4njni0t18ddri6018.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5UiYrf9mbkGvYjf65VctjqPa_1QIUp7A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "399401442767-tu73i70dfdnqiah4njni0t18ddri6018.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "399401442767-jrk3kova1nqm8gtllauv7g6b1qvulsfb.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.flutterFirebaseLogin"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
