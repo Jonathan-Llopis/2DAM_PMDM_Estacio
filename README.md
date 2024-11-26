@@ -71,5 +71,22 @@ Alumne: Jonathan Llopis Linares
       <td>Flutter - Harry Potter - Clean Code</td>
       <td><a href="https://github.com/Jonathan-Llopis/2DAM_PMDM_Estacio/tree/main/Actividades%20clase/flutter_harry_potter_clean_arch">Link</a></td>
      </tr>
+<tr>
+      <td>13</td>
+      <td>Flutter - Harry Potter - Login</td>
+      <td><a href="https://github.com/Jonathan-Llopis/2DAM_PMDM_Estacio/tree/main/Actividades%20clase/flutter_harry_potter_login">Link</a></td>
+     </tr>
+     <tr>
+      <td>14</td>
+      <td>Flutter - Twitter Copy</td>
+      <td><a href="https://github.com/Jonathan-Llopis/2DAM_PMDM_Estacio/tree/main/Actividades%20clase/flutter_twitter_copy">Link</a></td>
+     </tr>
+        <tr>
+      <td>15</td>
+      <td>Flutter - Twitter Copy</td>
+      <td><a href="https://github.com/Jonathan-Llopis/2DAM_PMDM_Estacio/tree/main/Actividades%20clase/flutter_firebase_login">Link</a></td>
+     </tr>
+
+    
 </div>
 
