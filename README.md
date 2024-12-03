@@ -86,7 +86,10 @@ Alumne: Jonathan Llopis Linares
       <td>Flutter - FireBase - Google Login</td>
       <td><a href="https://github.com/Jonathan-Llopis/2DAM_PMDM_Estacio/tree/main/Actividades%20clase/flutter_firebase_login">Link</a></td>
      </tr>
-
-    
+      <tr>
+      <td>15</td>
+      <td>Flutter - FireBase - Visits</td>
+      <td><a href="https://github.com/Jonathan-Llopis/2DAM_PMDM_Estacio/tree/main/Actividades%20clase/flutter_visits_firebase">Link</a></td>
+     </tr>
 </div>
 
