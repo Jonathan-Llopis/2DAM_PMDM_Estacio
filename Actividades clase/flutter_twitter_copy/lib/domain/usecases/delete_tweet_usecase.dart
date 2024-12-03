@@ -7,7 +7,7 @@ class DeleteTweetUseCase {
 
   DeleteTweetUseCase(this.repository);
 
-  Future<Either<String, void>> call( String tweetId) {
+  Future<Either<String, void>> call(String tweetId) {
     return repository.deleteTweet(tweetId);
   }
 }

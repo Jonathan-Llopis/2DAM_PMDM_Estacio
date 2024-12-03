@@ -16,14 +16,14 @@ class TweetBloc extends Bloc<TweetEvent, TweetState> {
   final UpdateTweetUseCase updateTweetUseCase;
   final GetFollowUsersTweetsUseCase getFollowUsersTweetUseCase;
 
-  TweetBloc(
-     { required this.getTweetsUseCase,
-      required this.createTweetUseCase,
-      required this.deleteTweetUseCase,
-      required this.likeTweetUseCase,
-      required this.updateTweetUseCase,
-      required this.getFollowUsersTweetUseCase})
-      : super(TweetState.initial()) {
+  TweetBloc({
+    required this.getTweetsUseCase,
+    required this.createTweetUseCase,
+    required this.deleteTweetUseCase,
+    required this.likeTweetUseCase,
+    required this.updateTweetUseCase,
+    required this.getFollowUsersTweetUseCase,
+  }) : super(TweetState.initial()) {
     on<GetTweetsUseCaseEvent>(_onGetTweetsUseCaseEvent);
     on<CreateTweetUseCaseEvent>(_onCreateTweetUseCaseEvent);
     on<DeleteTweetUseCaseEvent>(_onDeleteTweetUseCaseEvent);
@@ -35,32 +35,87 @@ class TweetBloc extends Bloc<TweetEvent, TweetState> {
   Future<void> _onGetTweetsUseCaseEvent(
     GetTweetsUseCaseEvent event,
     Emitter<TweetState> emit,
-  ) async {}
+  ) async {
+    emit(state.copyWith(isLoading: true));
+    final result = await getTweetsUseCase();
+    result.fold(
+      (error) => emit(state.copyWith(isLoading: false, errorMessage: error)),
+      (tweets) => emit(state.copyWith(isLoading: false, tweets: tweets)),
+    );
+  }
 
   Future<void> _onCreateTweetUseCaseEvent(
     CreateTweetUseCaseEvent event,
     Emitter<TweetState> emit,
-  ) async {}
+  ) async {
+    emit(state.copyWith(isLoading: true));
+    final result =
+        await createTweetUseCase(event.userId, event.content, event.image);
+    result.fold(
+      (error) => emit(state.copyWith(isLoading: false, errorMessage: error)),
+      (tweets) {
+        add(GetTweetsUseCaseEvent());
+        emit(state.copyWith(isLoading: false));
+      },
+    );
+  }
 
   Future<void> _onDeleteTweetUseCaseEvent(
     DeleteTweetUseCaseEvent event,
     Emitter<TweetState> emit,
-  ) async {}
+  ) async {
+    emit(state.copyWith(isLoading: true));
+    final result = await deleteTweetUseCase(event.tweetId);
+    result.fold(
+      (error) => emit(state.copyWith(isLoading: false, errorMessage: error)),
+      (tweets) {
+        emit(state.copyWith(isLoading: false));
+      },
+    );
+  }
 
   Future<void> _onLikeTweetUseCaseEvent(
     LikeTweetUseCaseEvent event,
     Emitter<TweetState> emit,
-  ) async {}
+  ) async {
+    emit(state.copyWith(isLoading: true));
+    final result = await likeTweetUseCase(event.tweetId, event.userId);
+    result.fold(
+      (error) => emit(state.copyWith(isLoading: false, errorMessage: error)),
+      (tweets) {
+        add(GetTweetsUseCaseEvent());
+        emit(state.copyWith(isLoading: false));
+      },
+    );
+  }
 
   Future<void> _onUpdateTweetUseCaseEvent(
     UpdateTweetUseCaseEvent event,
     Emitter<TweetState> emit,
-  ) async {}
+  ) async {
+    emit(state.copyWith(isLoading: true));
+    final result =
+        await updateTweetUseCase(event.tweetId, event.content, event.image);
+    result.fold(
+      (error) => emit(state.copyWith(isLoading: false, errorMessage: error)),
+      (tweets) {
+        add(GetTweetsUseCaseEvent());
+        emit(state.copyWith(isLoading: false));
+      },
+    );
+  }
 
   Future<void> _onGetFollowUsersTweetsUseCaseEvent(
     GetFollowUsersTweetsUseCaseEvent event,
     Emitter<TweetState> emit,
-  ) async {}
-
-  
+  ) async {
+    emit(state.copyWith(isLoading: true));
+    final result = await getFollowUsersTweetUseCase(event.userId);
+    result.fold(
+      (error) => emit(state.copyWith(isLoading: false, errorMessage: error)),
+      (tweets) {
+        emit(state.copyWith(isLoading: false, tweets: tweets));
+      },
+    );
+  }
 }

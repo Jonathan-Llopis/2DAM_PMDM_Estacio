@@ -3,7 +3,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
 
 class UserRemoteDatasource {
-  final String _baseUrl = dotenv.env['API_URL'] ?? 'http://x-api-two.vercel.app';
+  final String _baseUrl = dotenv.env['API_URL'] ?? 'http://localhost:3000';
 
   UserRemoteDatasource();
 
@@ -48,6 +48,34 @@ class UserRemoteDatasource {
     } else {
       throw Exception(
           'Fallo al actualizar la información del usuario: ${response.body}');
+    }
+  }
+
+  Future<Map<String, dynamic>> getAllUsers() async {
+    final response = await http.get(
+      Uri.parse('$_baseUrl/users'),
+      headers: {'Content-Type': 'application/json'},
+    );
+
+    if (response.statusCode == 200) {
+      return json.decode(response.body);
+    } else {
+      throw Exception(
+          'Fallo al obtener la información de los usuarios: ${response.body}');
+    }
+  }
+
+  Future<bool> followUser(String userToFollow, String userId) async {
+    final response = await http.post(
+      Uri.parse('$_baseUrl/users/$userToFollow/follow'),
+      headers: {'Content-Type': 'application/json'},
+      body: json.encode({'followerId': userId}),
+    );
+
+    if (response.statusCode == 200) {
+      return true;
+    } else {
+      throw Exception('Fallo al seguir a un usuario: ${response.body}');
     }
   }
 }

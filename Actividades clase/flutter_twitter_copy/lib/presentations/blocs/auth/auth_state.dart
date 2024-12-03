@@ -1,9 +1,10 @@
 import 'package:equatable/equatable.dart';
-import 'package:flutter_twitter_copy/domain/repositories/user.dart';
+import 'package:flutter_twitter_copy/domain/entities/user.dart';
 
 class AuthState extends Equatable {
-  final User user;
-  final User userBrowser;
+  final User? user;
+  final User? userBrowser;
+  final List<User> users;
   final bool isLoading;
   final String errorMessage;
 
@@ -12,14 +13,16 @@ class AuthState extends Equatable {
     required this.userBrowser,
     required this.isLoading,
     required this.errorMessage,
+    required this.users,
   });
 
   factory AuthState.initial() {
     return AuthState(
-      user: User(avatar: "", username: "", id: "", following: []),
-      userBrowser: User(id: "", username: "", following: [], avatar: ""),
+      user: null,
+      userBrowser: null,
       isLoading: false,
       errorMessage: '',
+      users: [],
     );
   }
 
@@ -28,15 +31,17 @@ class AuthState extends Equatable {
     User? userBrowser,
     bool? isLoading,
     String? errorMessage,
+    List<User>? users,
   }) {
     return AuthState(
       user: user ?? this.user,
       userBrowser: userBrowser ?? this.userBrowser,
       isLoading: isLoading ?? this.isLoading,
       errorMessage: errorMessage ?? this.errorMessage,
+      users: users ?? this.users,
     );
   }
 
   @override
-  List<Object?> get props => [user, userBrowser, isLoading, errorMessage];
+  List<Object?> get props => [user, userBrowser, isLoading, errorMessage, users];
 }

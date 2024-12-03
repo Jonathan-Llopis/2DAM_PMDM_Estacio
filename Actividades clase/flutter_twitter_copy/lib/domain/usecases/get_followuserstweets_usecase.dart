@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:flutter_twitter_copy/domain/entities/tweet.dart';
 import 'package:flutter_twitter_copy/domain/repositories/tweet_repository.dart';
 
 
@@ -7,7 +8,7 @@ class GetFollowUsersTweetsUseCase {
 
   GetFollowUsersTweetsUseCase(this.repository);
 
-  Future<Either<String, void>> call(String userId) {
+  Future<Either<String, List<Tweet>>> call(String userId) {
     return repository.getFollowUsersTweets(userId);
   }
 }

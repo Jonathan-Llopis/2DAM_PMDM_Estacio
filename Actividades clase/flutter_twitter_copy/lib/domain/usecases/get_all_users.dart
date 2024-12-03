@@ -2,12 +2,13 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter_twitter_copy/domain/entities/user.dart';
 import 'package:flutter_twitter_copy/domain/repositories/user_repository.dart';
 
-class LoginUseCase {
+
+class GetAllUsersUseCase {
   final UserRepository repository;
 
-  LoginUseCase(this.repository);
+  GetAllUsersUseCase(this.repository);
 
-  Future<Either<String, User>> call(String username, String password) {
-    return repository.login(username, password);
+  Future<Either<String, List<User>>> call() {
+    return repository.getAllUsers();
   }
 }

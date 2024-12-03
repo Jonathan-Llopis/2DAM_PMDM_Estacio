@@ -1,8 +1,7 @@
 import 'package:equatable/equatable.dart';
-import 'package:flutter_twitter_copy/domain/repositories/user.dart';
-
+import 'package:flutter_twitter_copy/domain/entities/tweet.dart';
 class TweetState extends Equatable {
- final List<User> tweets;
+ final List<Tweet> tweets;
  final bool isLoading;
  final String errorMessage;
 
@@ -21,7 +20,7 @@ class TweetState extends Equatable {
  }
 
  TweetState copyWith({
-   List<User>? tweets,
+   List<Tweet>? tweets,
    bool? isLoading,
    String? errorMessage,
    String? filter,

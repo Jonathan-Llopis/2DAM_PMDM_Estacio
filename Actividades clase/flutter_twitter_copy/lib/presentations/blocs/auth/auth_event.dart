@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+
 abstract class AuthEvent extends Equatable {
   @override
   List<Object?> get props => [];
@@ -6,7 +7,6 @@ abstract class AuthEvent extends Equatable {
 
 class GetUserInfoUseCaseEvent extends AuthEvent {
   final String userId;
-
 
   GetUserInfoUseCaseEvent(this.userId);
 
@@ -35,4 +35,15 @@ class LoginUseCaseEvent extends AuthEvent {
   List<Object?> get props => [username, password];
 }
 
-class LogoutButtonPressed extends AuthEvent {}
+class GetUserCaseEvent extends AuthEvent {}
+class GetAllUsersEvent extends AuthEvent {}
+class LogoutEvent extends AuthEvent {}
+class FollowUserUseCaseEvent extends AuthEvent {
+  final String userToFollow;
+  final String userId;
+
+  FollowUserUseCaseEvent(this.userToFollow,this.userId);
+
+  @override
+  List<Object?> get props => [userToFollow,userId];
+}

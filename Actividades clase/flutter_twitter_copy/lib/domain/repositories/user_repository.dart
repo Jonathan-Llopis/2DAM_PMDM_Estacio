@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-import 'package:flutter_twitter_copy/domain/repositories/user.dart';
+import 'package:flutter_twitter_copy/domain/entities/user.dart';
 
 abstract class UserRepository {
   Future<Either<String, User>> login(String username, String password);
@@ -10,4 +10,11 @@ abstract class UserRepository {
       String userId, String? username, String? avatar);
 
   Future<Either<Exception, bool>> isLoggedIn();
+
+  Future<void> logout();
+
+  Future<Either<String, List<User>>> getAllUsers();
+
+  Future<Either<String, User>> getUser();
+  Future<Either<String, bool>> followUser(String userToFollow, String userId);
 }

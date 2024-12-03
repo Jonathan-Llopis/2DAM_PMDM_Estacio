@@ -3,7 +3,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
 
 class TweetRemoteDataSource {
-  final String _baseUrl = dotenv.env['API_URL'] ?? 'http://x-api-two.vercel.app';
+  final String _baseUrl = dotenv.env['API_URL'] ?? 'http://localhost:3000';
 
   TweetRemoteDataSource();
 
@@ -26,15 +26,14 @@ class TweetRemoteDataSource {
       headers: {'Content-Type': 'application/json'},
       body: json.encode({'userId': userId, 'content': content, 'image': image}),
     );
-
-    if (response.statusCode != 200) {
+    if (response.statusCode != 201) {
       throw Exception('Failed al crear el tweet: ${response.body}');
     }
   }
 
   Future<void> deleteTweet(String tweetId) async {
-    final response = await http.post(
-      Uri.parse('$_baseUrl/tweets/$tweetId/delete'),
+    final response = await http.delete(
+      Uri.parse('$_baseUrl/tweets/$tweetId'),
       headers: {'Content-Type': 'application/json'},
     );
 
@@ -70,7 +69,7 @@ class TweetRemoteDataSource {
 
   Future<List<dynamic>> getFollowUsersTweets(String userId) async {
     final response = await http.get(
-      Uri.parse('$_baseUrl/tweets/tweets?userId=$userId'),
+      Uri.parse('$_baseUrl/tweets?userId=$userId'),
       headers: {'Content-Type': 'application/json'},
     );
 
@@ -81,4 +80,6 @@ class TweetRemoteDataSource {
           'Fallo al obtener los tweets del usuario: ${response.body}');
     }
   }
+
+
 }

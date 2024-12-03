@@ -6,9 +6,12 @@ import 'package:flutter_twitter_copy/domain/repositories/tweet_repository.dart';
 import 'package:flutter_twitter_copy/domain/repositories/user_repository.dart';
 import 'package:flutter_twitter_copy/domain/usecases/create_tweet_usecase.dart';
 import 'package:flutter_twitter_copy/domain/usecases/delete_tweet_usecase.dart';
+import 'package:flutter_twitter_copy/domain/usecases/follow_user.dart';
+import 'package:flutter_twitter_copy/domain/usecases/get_all_users.dart';
 import 'package:flutter_twitter_copy/domain/usecases/get_followuserstweets_usecase.dart';
 import 'package:flutter_twitter_copy/domain/usecases/get_tweets_usecase.dart';
 import 'package:flutter_twitter_copy/domain/usecases/get_user_info_usecase.dart';
+import 'package:flutter_twitter_copy/domain/usecases/get_user_usecase.dart';
 import 'package:flutter_twitter_copy/domain/usecases/like_tweet_usecase.dart';
 import 'package:flutter_twitter_copy/domain/usecases/login_usecase.dart';
 import 'package:flutter_twitter_copy/domain/usecases/update_tweet_usecase.dart';
@@ -31,7 +34,9 @@ void setupDependencies() async {
 
   // Repositories
   sl.registerLazySingleton<UserRepository>(
-    () => UserRepositoryImpl(remoteDataSource: sl()),
+    () => UserRepositoryImpl(
+      remoteDataSource: sl(),
+    ),
   );
   sl.registerLazySingleton<TweetRepository>(
     () => TweetRepositoryImpl(remoteDataSource: sl()),
@@ -47,20 +52,26 @@ void setupDependencies() async {
   sl.registerLazySingleton(() => LikeTweetUseCase(sl()));
   sl.registerLazySingleton(() => UpdateTweetUseCase(sl()));
   sl.registerLazySingleton(() => GetFollowUsersTweetsUseCase(sl()));
+  sl.registerLazySingleton(() => GetUserUseCase(sl()));
+  sl.registerLazySingleton(() => GetAllUsersUseCase(sl()));
+  sl.registerLazySingleton(() => FollowUserUseCase(sl()));
 
   // Blocs
   sl.registerFactory(() => AuthBloc(
-        loginUseCase: sl(),
-        getUserInfoUseCase: sl(),
-        updateUserInfoUseCase: sl(),
-        userRepository: sl(),
-      ));
+      loginUseCase: sl(),
+      getUserInfoUseCase: sl(),
+      updateUserInfoUseCase: sl(),
+      userRepository: sl(),
+      getUserUseCase: sl(),
+      getAllUsersUseCase: sl(),
+      followUserUseCase: sl()));
 
   sl.registerFactory(() => TweetBloc(
-      getTweetsUseCase: sl(),
-      createTweetUseCase: sl(),
-      deleteTweetUseCase: sl(),
-      likeTweetUseCase: sl(),
-      updateTweetUseCase: sl(),
-      getFollowUsersTweetUseCase: sl()));
+        getTweetsUseCase: sl(),
+        createTweetUseCase: sl(),
+        deleteTweetUseCase: sl(),
+        likeTweetUseCase: sl(),
+        updateTweetUseCase: sl(),
+        getFollowUsersTweetUseCase: sl(),
+      ));
 }
